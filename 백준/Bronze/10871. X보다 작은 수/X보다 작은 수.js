@@ -1,9 +1,14 @@
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim().split("\n");
 
-const num = Number(input[0].split(' ')[1]);
-const arr = input[1].split(' ').map(x => Number(x));
+const [N, X] = input[0].split(" ").map(Number);
+const numbers = input[1].split(" ").map(Number);
 
-const newArr = arr.filter(item => item < num);
+let result = [];
+for (let i = 0; i < N; i++) {
+  if (numbers[i] < X) {
+    result.push(numbers[i]);
+  }
+}
 
-console.log(newArr.join(' '));
+console.log(result.join(" "));
